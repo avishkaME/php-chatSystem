@@ -11,11 +11,17 @@
   </head>
   <body>
 
+    <?php
+      session_start();
+      $_SESSION['username'] = "avishkaMe";
+
+     ?>
+
     <div id="wrapper">
       <h1>welcome to my site</h1>
       <div class="chat_wrapper">
         <div id="chat"></div>
-          <form class="" action="" method="POST">
+          <form class="" action="" method="POST" id="msgForm">
             <textarea name="message" rows="7" cols="94" class="textarea"></textarea>
 
           </form>
@@ -36,7 +42,10 @@
         var message = $('.textarea').val();
 
         $.post('handlers/messages.php?action=sendMessage&message='+message, function(response){
-          alert(response);
+
+          if (response==1){
+            document.getElementById('msgForm').reset();
+          }
         })
         return false;
       })
