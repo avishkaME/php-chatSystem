@@ -27,9 +27,19 @@
       $('.textarea').keyup(function(e){
         //alert when pressed enter
         if (e.which == 13) {
-          alert('enter is pressed');
+          $('form').submit();
         }
       });
+
+      $('form').submit(function(){
+
+        var message = $('.textarea').val();
+
+        $.post('handlers/messages.php?action=sendMessage&message='+message, function(response){
+          alert(response);
+        })
+        return false;
+      })
     </script>
 
 
