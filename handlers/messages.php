@@ -16,5 +16,14 @@
 
       break;
 
+      case "getMessages":
+        $query = $db->prepare("SELECT * FROM messages");
+        $run = $query->execute();
+
+        $rs = $query->fetchAll(PDO::FETCH_OBJ);
+
+        echo var_dump($rs);
+      break;
+
   }
 ?>

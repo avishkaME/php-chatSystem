@@ -30,6 +30,13 @@
     </div>
 
     <script>
+    loadChat();
+      function loadChat(){
+        $.post('handlers/messages.php?action=getMessages',function(response){
+          $('#chat').html(response);
+        });
+      }
+
       $('.textarea').keyup(function(e){
         //alert when pressed enter
         if (e.which == 13) {
