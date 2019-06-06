@@ -34,6 +34,7 @@
       function loadChat(){
         $.post('handlers/messages.php?action=getMessages',function(response){
           $('#chat').html(response);
+          $('#chat').scrollTop( $('#chat').prop('scrollHeight'));
         });
       }
 
@@ -50,12 +51,13 @@
 
         $.post('handlers/messages.php?action=sendMessage&message='+message, function(response){
 
-          if (response==1){
+          if(response==1){
+            loadChat();
             document.getElementById('msgForm').reset();
           }
-        })
+        });
         return false;
-      })
+      });
     </script>
 
 

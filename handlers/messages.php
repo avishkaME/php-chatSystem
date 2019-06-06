@@ -1,3 +1,5 @@
+
+
 <?php
 
   include('../config.php');
@@ -24,8 +26,24 @@
 
         $chat = '';
         foreach ($rs as $message){
-          $chat .= '<div class="single-message">
+          $chat .= '<div class="single-message" style="padding: 5px 0px;
+          border-bottom: 1px solid #b3b3b3;">
                     <strong>'.$message->user.': </strong>'.$message->message.'
+                    <span style="float: right;">'.date('m-d-Y h:i a'.strtotime($message->date)).'</span>
+                    </div>';
+        }
+        foreach ($rs as $message){
+          $chat .= '<div class="single-message" style="padding: 5px 0px;
+          border-bottom: 1px solid #b3b3b3;">
+                    <strong>'.$message->user.': </strong>'.$message->message.'
+                    <span style="float: right;">'.date('m-d-Y h:i a'.strtotime($message->date)).'</span>
+                    </div>';
+        }
+        foreach ($rs as $message){
+          $chat .= '<div class="single-message" style="padding: 5px 0px;
+          border-bottom: 1px solid #b3b3b3;">
+                    <strong>'.$message->user.': </strong>'.$message->message.'
+                    <span style="float: right;">'.date('m-d-Y h:i a'.strtotime($message->date)).'</span>
                     </div>';
         }
 
