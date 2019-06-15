@@ -11,14 +11,8 @@
   </head>
   <body>
 
-    <?php
-      session_start();
-      $_SESSION['username'] = "avishkaMe";
-
-     ?>
-
     <div id="wrapper">
-      <h1>welcome to my site</h1>
+      <h1>LapZchat</h1>
       <div class="chat_wrapper">
         <div id="chat"></div>
           <form class="" action="" method="POST" id="msgForm">
@@ -31,6 +25,11 @@
 
     <script>
     loadChat();
+
+    setInterval(function(){
+      loadChat();
+    },1000);
+
       function loadChat(){
         $.post('handlers/messages.php?action=getMessages',function(response){
           $('#chat').html(response);
